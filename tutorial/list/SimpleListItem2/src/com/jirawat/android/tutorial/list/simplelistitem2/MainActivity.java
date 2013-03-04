@@ -36,6 +36,19 @@ public class MainActivity extends ListActivity {
         setListAdapter(listAdapter);        
     }
     
+    /**
+     * A <a href="http://developer.android.com/reference/android/widget/ListAdapter.html">
+     * ListAdapter</a> converts the List of data into the Android UI 
+     * <a href="http://developer.android.com/guide/topics/ui/layout/listview.html">
+     * List View</a>
+     *
+     * @since 1.0
+     *
+     * @param map A map of String key/value pairs
+     * @return An Adapter using the 
+     * <a href="http://developer.android.com/reference/android/R.layout.html#simple_list_item_2">
+     * simple_list_item_2</a> layout to display a Map of strings key/value pairs
+     */
     private ListAdapter createAdapter(final Map<String,String> map) {
     	final String[] fromMapKey = new String[] {TEXT1, TEXT2};
     	final int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
