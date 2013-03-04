@@ -31,7 +31,7 @@ public final class UsState {
         colonies.add("Maryland");
         colonies.add("South Carolina");
         colonies.add("New Hampshire");
-        colonies.add("Virgina");
+        colonies.add("Virginia");
         colonies.add("New York");
         colonies.add("North Carolina");
         colonies.add("Rhode Island");

@@ -32,7 +32,7 @@ public final class UsState {
         colonies.put("Maryland", "MD");
         colonies.put("South Carolina", "SC");
         colonies.put("New Hampshire", "NH");
-        colonies.put("Virgina", "VA");
+        colonies.put("Virginia", "VA");
         colonies.put("New York", "NY");
         colonies.put("North Carolina", "NC");
         colonies.put("Rhode Island", "RI");
