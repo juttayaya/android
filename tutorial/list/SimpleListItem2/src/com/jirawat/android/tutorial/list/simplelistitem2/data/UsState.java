@@ -1,9 +1,5 @@
 package com.jirawat.android.tutorial.list.simplelistitem2.data;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * Info on United States of America.
  *
@@ -13,30 +9,37 @@ import java.util.Map;
  * @since 1.0
  *
  */
-public final class UsState {
-    /**
-     * The 13 US original colonies and abbreviations, in order of statehood.
-     */
-    public static final Map<String, String> ORIGINAL_COLONIES = initColonies();
+public enum UsState {
+    DE("Delaware"),
+    PA("Pennsylvania"),
+    NJ("New Jersey"),
+    GA("Georgia"),
+    CT("Connecticut"),
+    MA("Massachusetts"),
+    MD("Maryland"),
+    SC("South Carolina"),
+    NH("New Hampshire"),
+    VA("Virginia"),
+    NY("New York"),
+    NC("North Carolina"),
+    RI("Rhode Island");
 
-    private UsState() { }
+    private String stateName;
+    
+	private UsState(final String name) {
+        this.stateName = name;
+	}
 
-    private static Map<String, String> initColonies() {
-        final Map<String, String> colonies = new LinkedHashMap<String, String>();
-        colonies.put("Delaware", "DE");
-        colonies.put("Pennsylvania", "PA");
-        colonies.put("New Jersey", "NJ");
-        colonies.put("Georgia", "GA");
-        colonies.put("Connecticut", "CT");
-        colonies.put("Massachusetts", "MA");
-        colonies.put("Maryland", "MD");
-        colonies.put("South Carolina", "SC");
-        colonies.put("New Hampshire", "NH");
-        colonies.put("Virginia", "VA");
-        colonies.put("New York", "NY");
-        colonies.put("North Carolina", "NC");
-        colonies.put("Rhode Island", "RI");
-
-        return Collections.unmodifiableMap(colonies);
-    }
+	public String getStateName() {
+	    return this.stateName;	
+	}
+	
+	public String getAbbreviation() {
+	    return this.name();
+	}
+	
+	@Override
+	public String toString() {
+		return getAbbreviation() + ":" + getStateName();
+	}
 }

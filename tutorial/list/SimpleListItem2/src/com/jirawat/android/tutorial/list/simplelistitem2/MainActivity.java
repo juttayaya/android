@@ -33,7 +33,8 @@ public class MainActivity extends ListActivity {
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final ListAdapter listAdapter = createAdapter(UsState.ORIGINAL_COLONIES);
+		final UsState[] states = UsState.values(); 
+		final ListAdapter listAdapter = createAdapter(states);
 		setListAdapter(listAdapter);
 	}
 
@@ -53,26 +54,25 @@ public class MainActivity extends ListActivity {
 	 *         > simple_list_item_2</a> layout to display a Map of strings
 	 *         key/value pairs
 	 */
-	private ListAdapter createAdapter(final Map<String, String> map) {
+	private ListAdapter createAdapter(final UsState[] states) {
 		final String[] fromMapKey = new String[] {TEXT1, TEXT2};
 		final int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
-		final List<Map<String, String>> list = convertMapToList(map);
-
+		final List<Map<String, String>> list = convertToListItems(states);
+        
 		return new SimpleAdapter(this, list,
 				android.R.layout.simple_list_item_2, fromMapKey, toLayoutId);
 	}
 
-	private List<Map<String, String>> convertMapToList(final Map<String, String> map) {
-		final List<Map<String, String>> list = new ArrayList<Map<String, String>>(
-				map.size());
+	private List<Map<String, String>> convertToListItems(final UsState[] states) {
+		final List<Map<String, String>> listItem = new ArrayList<Map<String, String>>(states.length);
 
-		for (final Map.Entry<String, String> entry : map.entrySet()) {
-			final Map<String, String> adapterMap = new HashMap<String, String>();
-			adapterMap.put(TEXT1, entry.getKey());
-			adapterMap.put(TEXT2, entry.getValue());
-			list.add(adapterMap);
+		for (final UsState state: states) {
+			final Map<String, String> listItemMap = new HashMap<String, String>();
+			listItemMap.put(TEXT1, state.getStateName());
+			listItemMap.put(TEXT2, state.getAbbreviation());
+			listItem.add(Collections.unmodifiableMap(listItemMap));
 		}
 
-		return Collections.unmodifiableList(list);
+		return Collections.unmodifiableList(listItem);
 	}
 }
