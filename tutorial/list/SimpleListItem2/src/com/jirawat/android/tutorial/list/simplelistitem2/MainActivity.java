@@ -34,7 +34,7 @@ public class MainActivity extends ListActivity {
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final UsState[] states = UsState.values(); 
-		final ListAdapter listAdapter = createAdapter(states);
+		final ListAdapter listAdapter = createListAdapter(states);
 		setListAdapter(listAdapter);
 	}
 
@@ -54,7 +54,7 @@ public class MainActivity extends ListActivity {
 	 *         > simple_list_item_2</a> layout to display a Map of strings
 	 *         key/value pairs
 	 */
-	private ListAdapter createAdapter(final UsState[] states) {
+	private ListAdapter createListAdapter(final UsState[] states) {
 		final String[] fromMapKey = new String[] {TEXT1, TEXT2};
 		final int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
 		final List<Map<String, String>> list = convertToListItems(states);
