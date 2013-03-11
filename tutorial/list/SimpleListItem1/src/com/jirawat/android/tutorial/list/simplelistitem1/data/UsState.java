@@ -15,11 +15,20 @@ import java.util.List;
 public final class UsState {
     /**
      * The 13 US original colonies, in order of statehood.
+     *
+     * @since 1.0
      */
     public static final List<String> ORIGINAL_COLONIES = initColonies();
 
     private UsState() { }
 
+    /**
+     * Initialize the 13 US original colonies in order of statehood.
+     * @since 1.0
+     *
+     * @return An unmodifiable List of the 13 US original colonies names
+     *         in order of statehood
+     */
     private static List<String> initColonies() {
         final List<String> colonies = new ArrayList<String>();
         colonies.add("Delaware");
