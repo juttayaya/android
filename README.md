@@ -1,2 +1,2 @@
 # android
-Andriod tutorial
+Android tutorial and code
